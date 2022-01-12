@@ -1,0 +1,149 @@
+.centerContainer {
+  height: 100%;
+  background-color: #f3f3f3;
+}
+.centerContainer .header {
+  width: 100%;
+  background-color: #42cb56;
+  padding-top: 30rpx;
+}
+.centerContainer .header .icon {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 20rpx;
+}
+.centerContainer .header .icon image {
+  width: 48rpx;
+  height: 48rpx;
+}
+.centerContainer .header .login {
+  display: flex;
+  align-items: center;
+  margin: 50rpx 20rpx;
+}
+.centerContainer .header .login .avatar {
+  width: 140rpx;
+  height: 140rpx;
+}
+.centerContainer .header .login .loginText {
+  font-size: 30rpx;
+  color: #fff;
+  font-weight: 500;
+  margin-left: 20rpx;
+}
+.centerContainer .header .buttomWrap {
+  display: flex;
+  align-items: center;
+  width: 95%;
+  height: 60rpx;
+  background-color: #252525;
+  border-radius: 30rpx 30rpx 0 0;
+  margin-left: 20rpx;
+}
+.centerContainer .header .buttomWrap .buttomImg {
+  width: 128rpx;
+  height: 28rpx;
+  margin-left: 30rpx;
+}
+.centerContainer .order {
+  display: flex;
+  align-items: flex-end;
+  height: 230rpx;
+  background-color: #fff;
+  margin: 30rpx 20rpx;
+  border-radius: 30rpx;
+}
+.centerContainer .order .orderList {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  padding: 20rpx;
+}
+.centerContainer .order .orderList .orderItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20%;
+}
+.centerContainer .order .orderList .orderItem .itemImg {
+  width: 50rpx;
+  height: 44rpx;
+}
+.centerContainer .order .orderList .orderItem .itemText {
+  font-size: 24rpx;
+  margin-top: 10rpx;
+}
+.centerContainer .wallet {
+  display: flex;
+  align-items: flex-end;
+  height: 230rpx;
+  background-color: #fff;
+  margin: 30rpx 20rpx;
+  border-radius: 30rpx;
+}
+.centerContainer .wallet .walletList {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  padding: 20rpx;
+}
+.centerContainer .wallet .walletList .walletItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20%;
+}
+.centerContainer .wallet .walletList .walletItem .itemPrice {
+  width: 50rpx;
+  height: 44rpx;
+  line-height: 44rpx;
+  text-align: center;
+  color: #ff5757;
+}
+.centerContainer .wallet .walletList .walletItem .itemText {
+  font-size: 24rpx;
+  margin-top: 10rpx;
+}
+.centerContainer .server {
+  background-color: #fff;
+  margin: 30rpx 20rpx;
+  border-radius: 30rpx;
+  padding: 30rpx;
+}
+.centerContainer .server .title {
+  display: flex;
+  justify-content: space-between;
+}
+.centerContainer .server .title .leftImg {
+  width: 168rpx;
+  height: 32rpx;
+}
+.centerContainer .server .title .rightImg {
+  width: 20rpx;
+  height: 32rpx;
+}
+.centerContainer .server .serverList {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 40rpx;
+}
+.centerContainer .server .serverList .serverItem {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 20rpx 0;
+}
+.centerContainer .server .serverList .serverItem .itemImg {
+  width: 40rpx;
+  height: 40rpx;
+}
+.centerContainer .server .serverList .serverItem .itemText {
+  width: 100%;
+  font-size: 24rpx;
+  margin-top: 10rpx;
+}
+

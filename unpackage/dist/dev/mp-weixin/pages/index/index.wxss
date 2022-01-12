@@ -1,0 +1,237 @@
+.indexContainer {
+  height: 100%;
+  background-color: #f7f7f7;
+  padding: 0 20rpx;
+}
+.indexContainer .header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 20rpx;
+}
+.indexContainer .header .search {
+  display: flex;
+  align-items: center;
+  width: 85%;
+  height: 60rpx;
+  background-color: #fdfdfd;
+  border-radius: 60rpx;
+}
+.indexContainer .header .search .search_icon {
+  width: 20rpx;
+  height: 20rpx;
+  margin: 0 20rpx;
+}
+.indexContainer .header .search .searchInp {
+  font-size: 25rpx;
+}
+.indexContainer .header .news {
+  width: 50rpx;
+  height: 50rpx;
+}
+.indexContainer .indexSwiper {
+  width: 100%;
+  padding-top: 30rpx;
+}
+.indexContainer .indexSwiper .swiper-item .swiperImg {
+  width: 100%;
+  height: 300rpx;
+  border-radius: 20rpx 60rpx 20rpx 20rpx;
+}
+.indexContainer .centerImg1 {
+  width: 100%;
+  height: 194rpx;
+}
+.indexContainer .centerImg2 {
+  width: 100%;
+  height: 127rpx;
+}
+.indexContainer .recommend {
+  background-color: #fff;
+  border-radius: 20rpx 60rpx 20rpx 20rpx;
+  padding: 20rpx 10rpx;
+}
+.indexContainer .recommend .title {
+  font-size: 30rpx;
+  color: #333;
+  font-weight: 700;
+  padding-left: 10rpx;
+}
+.indexContainer .recommend .recommendItem {
+  display: flex;
+  border-radius: 20rpx 60rpx 20rpx 20rpx;
+  margin-top: 20rpx;
+}
+.indexContainer .recommend .recommendItem .leftImg {
+  width: 380rpx;
+  height: 230rpx;
+  border-radius: 20rpx;
+}
+.indexContainer .recommend .recommendItem .item {
+  flex: 1;
+  padding: 13.5rpx;
+  background-color: #f7f7f7;
+  border-radius: 0 60rpx 20rpx 0;
+}
+.indexContainer .recommend .recommendItem .item .itemTitle {
+  height: 64rpx;
+  line-height: 32rpx;
+  font-size: 28rpx;
+}
+.indexContainer .recommend .recommendItem .item .itemBottom {
+  display: flex;
+  margin-top: 20rpx;
+  box-sizing: border-box;
+}
+.indexContainer .recommend .recommendItem .item .itemBottom .rightImg {
+  width: 100rpx;
+  height: 100rpx;
+}
+.indexContainer .recommend .recommendItem .item .itemBottom .itemRight {
+  display: flex;
+  flex-direction: column;
+  margin: 20rpx 0 0 20rpx;
+}
+.indexContainer .recommend .recommendItem .item .itemBottom .itemRight .price {
+  font-size: 28rpx;
+  font-weight: 700;
+}
+.indexContainer .recommend .recommendItem .item .itemBottom .itemRight .num {
+  font-size: 20rpx;
+  color: #999;
+  margin-top: 10rpx;
+}
+.indexContainer .discount {
+  background-color: #fff;
+  margin-top: 50rpx;
+  border-radius: 20rpx 60rpx 20rpx 20rpx;
+  padding: 20rpx 0;
+}
+.indexContainer .discount .title {
+  font-size: 35rpx;
+  font-weight: 700;
+  padding-bottom: 10rpx;
+  margin-left: 20rpx;
+}
+.indexContainer .discount .discountList {
+  display: flex;
+  justify-content: space-around;
+}
+.indexContainer .discount .discountList .discountItem .itemImg {
+  width: 186rpx;
+  height: 186rpx;
+  padding: 10rpx;
+  border: 1rpx solid #aaa;
+  border-radius: 20rpx;
+}
+.indexContainer .discount .discountList .discountItem .itemImg .img {
+  width: 186rpx;
+  height: 186rpx;
+}
+.indexContainer .discount .discountList .discountItem .itemText {
+  width: 208rpx;
+  font-size: 24rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1 /* * 多行文本溢出... */;
+  overflow: hidden;
+  margin: 10rpx 0;
+}
+.indexContainer .discount .discountList .discountItem .itemPrice .nPrice {
+  font-size: 28rpx;
+  font-weight: 700;
+  margin-right: 10rpx;
+}
+.indexContainer .discount .discountList .discountItem .itemPrice .oPrice {
+  text-decoration: line-through;
+  font-size: 20rpx;
+  color: #cdcdcd;
+}
+.indexContainer .like .title {
+  font-size: 30rpx;
+  font-weight: 700;
+  margin: 30rpx 0;
+}
+.indexContainer .like .likeList {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10rpx;
+}
+.indexContainer .like .likeList .likeItem {
+  width: 48%;
+  background-color: #fff;
+  margin-top: 20rpx;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  margin-right: 15rpx;
+  border-radius: 20rpx;
+}
+.indexContainer .like .likeList .likeItem .itemTitle {
+  font-size: 28rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1 /* * 多行文本溢出... */;
+  overflow: hidden;
+  margin: 10rpx 0;
+}
+.indexContainer .like .likeList .likeItem .cateList {
+  display: flex;
+  font-size: 20rpx;
+  color: #aaa;
+  margin: 10rpx 0;
+}
+.indexContainer .like .likeList .likeItem .cateList .cateItem {
+  width: 80rpx;
+  height: 30rpx;
+  border: 1rpx solid #aaa;
+  line-height: 30rpx;
+  text-align: center;
+}
+.indexContainer .like .likeList .likeItem .itemPrice {
+  display: flex;
+  align-items: center;
+}
+.indexContainer .like .likeList .likeItem .itemPrice .price {
+  font-size: 28rpx;
+  font-weight: 700;
+  color: #fd8383;
+}
+.indexContainer .like .likeList .likeItem .itemPrice .tag_content {
+  width: 70rpx;
+  height: 30rpx;
+  background-color: #fd8383;
+  color: #fff;
+  font-size: 20rpx;
+  line-height: 30rpx;
+  text-align: center;
+  margin-left: 20rpx;
+}
+.indexContainer .like .likeList .likeItem .itemImg {
+  width: 326rpx;
+  height: 326rpx;
+}
+.indexContainer .like .likeList .likeItem .itemTop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20rpx;
+}
+.indexContainer .like .likeList .likeItem .itemTop .topImg {
+  width: 24rpx;
+  height: 26rpx;
+}
+.indexContainer .like .likeList .likeItem .itemTop .topTitle {
+  width: 85%;
+  font-size: 26rpx;
+  font-weight: 700;
+  text-align: center;
+}
+.indexContainer .like .likeList .likeItem .itemTop .topImgRight {
+  width: 8rpx;
+  height: 14rpx;
+}
+.indexContainer .like .likeList .likeItem .itemBottom .buttomImg {
+  width: 100%;
+  height: 50rpx;
+}
+

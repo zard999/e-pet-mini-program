@@ -1,0 +1,137 @@
+.categoryContainer {
+  height: 100%;
+  background-color: #f3f4f5;
+}
+.categoryContainer .header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 80rpx;
+  background-color: #fff;
+  font-size: 28rpx;
+  font-weight: 600;
+}
+.categoryContainer .header .category {
+  width: 60rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  box-sizing: border-box;
+  margin-right: 80rpx;
+}
+.categoryContainer .header .trademark {
+  width: 60rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  box-sizing: border-box;
+  text-align: center;
+}
+.categoryContainer .header .active {
+  color: #41c856;
+  border-bottom: 4rpx solid #41c856;
+}
+.categoryContainer .content {
+  display: flex;
+  margin-top: 10rpx;
+}
+.categoryContainer .content .leftNav {
+  width: 140rpx;
+  background-color: #fff;
+}
+.categoryContainer .content .leftNav .navItem {
+  width: 140rpx;
+  height: 100rpx;
+  font-size: 28rpx;
+  line-height: 100rpx;
+  text-align: center;
+  border-bottom: 1rpx solid #aaa;
+}
+.categoryContainer .content .leftNav .navItem.active {
+  color: #41c856;
+  background-color: #f3f4f5;
+  border-bottom: 1rpx solid #fff;
+}
+.categoryContainer .content .rightScroll {
+  height: calc(100vh - 100rpx);
+  margin-left: 10rpx;
+  background-color: #fff;
+}
+.categoryContainer .content .rightScroll .scrollItem .dog {
+  padding: 10rpx 10px 40px;
+}
+.categoryContainer .content .rightScroll .scrollItem .dog .topHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20rpx;
+  font-size: 24rpx;
+  color: #999;
+}
+.categoryContainer .content .rightScroll .scrollItem .dog .topHeader .rightAll {
+  width: 100rpx;
+  height: 20rpx;
+}
+.categoryContainer .content .rightScroll .scrollItem .dog .contentList {
+  display: flex;
+  flex-wrap: wrap;
+}
+.categoryContainer .content .rightScroll .scrollItem .dog .contentList .contentItem {
+  display: flex;
+  flex-direction: column;
+  width: 33.33%;
+  margin-top: 20rpx;
+}
+.categoryContainer .content .rightScroll .scrollItem .dog .contentList .contentItem .itemImg {
+  width: 100%;
+  height: 174rpx;
+}
+.categoryContainer .content .rightScroll .scrollItem .dog .contentList .contentItem .itemText {
+  width: 100%;
+  height: 40rpx;
+  text-align: center;
+  line-height: 40rpx;
+  font-size: 26rpx;
+  margin-top: 20rpx;
+}
+.categoryContainer .content .rightScroll .scrollItem .recommendTrademark {
+  padding: 5px 5px 20px;
+}
+.categoryContainer .content .rightScroll .scrollItem .recommendTrademark .topHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 0;
+  font-size: 24rpx;
+  color: #999;
+}
+.categoryContainer .content .rightScroll .scrollItem .recommendTrademark .contentList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.categoryContainer .content .rightScroll .scrollItem .recommendTrademark .contentList .contentItem {
+  display: flex;
+  flex-direction: column;
+  width: 48%;
+  margin-top: 10rpx;
+}
+.categoryContainer .content .rightScroll .scrollItem .recommendTrademark .contentList .contentItem .itemImg {
+  border: 1rpx solid #999;
+  box-sizing: border-box;
+  text-align: center;
+}
+.categoryContainer .content .rightScroll .scrollItem .recommendTrademark .contentList .contentItem .itemImg .img {
+  width: 160rpx;
+  height: 90rpx;
+  margin-top: 8rpx;
+}
+.categoryContainer .content .rightScroll .scrollItem .recommendTrademark .contentList .contentItem .itemText {
+  width: 100%;
+  height: 40rpx;
+  text-align: center;
+  line-height: 40rpx;
+  font-size: 24rpx;
+  margin-top: 10rpx;
+}
+

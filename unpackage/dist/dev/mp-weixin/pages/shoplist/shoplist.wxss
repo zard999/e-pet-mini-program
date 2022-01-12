@@ -1,0 +1,59 @@
+.shoplistContainer {
+  height: 100%;
+}
+.shoplistContainer .header {
+  display: flex;
+}
+.shoplistContainer .header .item {
+  width: 25%;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  border-bottom: 1rpx solid #999;
+  box-sizing: border-box;
+  font-size: 28rpx;
+}
+.shoplistContainer .header .item.active {
+  color: #41c856;
+}
+.shoplistContainer .shoplist .shopItem {
+  display: flex;
+  padding: 20rpx;
+  border-bottom: 1rpx solid #999;
+}
+.shoplistContainer .shoplist .shopItem .shopImg {
+  width: 200rpx;
+  height: 200rpx;
+  flex-shrink: 0;
+}
+.shoplistContainer .shoplist .shopItem .detail {
+  margin-left: 20rpx;
+}
+.shoplistContainer .shoplist .shopItem .detail .title {
+  font-size: 26rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; /** 多行文本溢出...*/
+  overflow: hidden;
+}
+.shoplistContainer .shoplist .shopItem .detail .price {
+  margin-top: 40rpx;
+}
+.shoplistContainer .shoplist .shopItem .detail .price .priceText {
+  color: #ff5757;
+  font-size: 28rpx;
+}
+.shoplistContainer .shoplist .shopItem .detail .price .dprice {
+  font-size: 26rpx;
+  color: #999;
+  margin-left: 30rpx;
+}
+.shoplistContainer .shoplist .shopItem .detail .sold {
+  margin-top: 10rpx;
+  font-size: 26rpx;
+  color: #999;
+}
+.shoplistContainer .shoplist .shopItem .detail .sold .soldNum {
+  margin-left: 10rpx;
+}
+
