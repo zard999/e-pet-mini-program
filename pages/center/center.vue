@@ -6,7 +6,14 @@
 				<image class="rightIcon" src="../../static/images/search-right.png" mode=""></image>
 			</view>
 
-			<view class="login">
+			
+			
+			<view class="login" v-if="userInfo.nickName">
+				<image class="avatar" :src="userInfo.avatarUrl" mode=""></image>
+				<text class="loginText">{{userInfo.nickName}}</text>
+			</view>
+			
+			<view class="login" v-else>
 				<image class="avatar" :src="avatar" mode=""></image>
 				<text class="loginText">未登陆</text>
 			</view>
@@ -54,10 +61,13 @@
 import { mapGetters } from 'vuex';
 export default {
 	data() {
-		return {};
+		return {
+			userInfo:{}
+		};
 	},
 	mounted() {
 		this.getCenterData();
+		this.userInfo = wx.getStorageSync('userInfo_key')
 	},
 
 	methods: {
@@ -116,6 +126,7 @@ export default {
 			.avatar
 				width 140rpx
 				height 140rpx
+				border-radius 50%
 			.loginText
 				font-size 30rpx
 				color #fff

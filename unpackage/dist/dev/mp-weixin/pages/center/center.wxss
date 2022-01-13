@@ -24,6 +24,7 @@
 .centerContainer .header .login .avatar {
   width: 140rpx;
   height: 140rpx;
+  border-radius: 50%;
 }
 .centerContainer .header .login .loginText {
   font-size: 30rpx;

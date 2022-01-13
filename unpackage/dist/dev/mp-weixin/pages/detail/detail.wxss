@@ -1,0 +1,178 @@
+.detailContainer {
+  height: 100%;
+  background-color: #f3f4f5;
+}
+.detailContainer .header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 80rpx;
+  background-color: #fff;
+  font-size: 32rpx;
+  box-sizing: border-box;
+  border-bottom: 1rpx solid #ddd;
+}
+.detailContainer .header .shop {
+  width: 70rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  box-sizing: border-box;
+}
+.detailContainer .header .detail {
+  width: 70rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  box-sizing: border-box;
+  text-align: center;
+  margin-left: 10rpx;
+}
+.detailContainer .header .evaluate {
+  width: 70rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  box-sizing: border-box;
+  text-align: center;
+  margin-left: 10rpx;
+}
+.detailContainer .header .active {
+  border-bottom: 4rpx solid #f03e3e;
+}
+.detailContainer .detailImg {
+  width: 100%;
+  height: 750rpx;
+}
+.detailContainer .price {
+  display: flex;
+}
+.detailContainer .price .leftPrice {
+  width: 70%;
+  background-color: #282729;
+  padding: 20rpx;
+}
+.detailContainer .price .leftPrice .priceText {
+  color: #e6b686;
+  font-size: 32rpx;
+  font-weight: 600;
+}
+.detailContainer .price .leftPrice .original {
+  color: #fff;
+  font-size: 28rpx;
+}
+.detailContainer .price .leftPrice .original .originalPrice {
+  text-decoration: line-through;
+  font-weight: 500;
+}
+.detailContainer .price .countDown {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20rpx;
+  background-color: #e3a865;
+}
+.detailContainer .price .countDown .countText {
+  font-size: 22rpx;
+  font-weight: 100;
+}
+.detailContainer .price .countDown .countTime {
+  display: flex;
+  align-items: center;
+  font-size: 22rpx;
+  margin-top: 10rpx;
+}
+.detailContainer .price .countDown .countTime .time {
+  padding: 5rpx;
+  background-color: #fff;
+  color: #ad7340;
+  line-height: 40rpx;
+  text-align: center;
+  font-weight: 600;
+  border-radius: 10rpx;
+  margin: 0 4rpx;
+}
+.detailContainer .title {
+  font-weight: 100;
+  padding: 20rpx;
+  background-color: #fff;
+}
+.detailContainer .title .titleText {
+  font-size: 28rpx;
+}
+.detailContainer .title .titleDetail {
+  font-size: 24rpx;
+  color: #eb567c;
+  margin: 10rpx 0;
+}
+.detailContainer .tag {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 0;
+  background-color: #fff;
+  margin-top: 30rpx;
+}
+.detailContainer .tag .tagItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 33.33333%;
+}
+.detailContainer .tag .tagItem image {
+  width: 40rpx;
+  height: 40rpx;
+}
+.detailContainer .tag .tagItem text {
+  font-size: 24rpx;
+  margin-left: 10rpx;
+  color: #999;
+}
+.detailContainer .cart {
+  width: 100%;
+  height: 120rpx;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  margin-top: 20rpx;
+}
+.detailContainer .cart image {
+  width: 40rpx;
+  height: 40rpx;
+}
+.detailContainer .cart .collect {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 60rpx;
+  color: #999;
+}
+.detailContainer .cart .collect .collectText {
+  margin-top: 10rpx;
+  font-size: 24rpx;
+}
+.detailContainer .cart .shopCart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 20rpx;
+  font-size: 24rpx;
+  color: #999;
+}
+.detailContainer .cart .shopCart .shopCartText {
+  margin-top: 10rpx;
+  font-size: 24rpx;
+}
+.detailContainer .cart .addCart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 120rpx;
+  background-color: #f03e3e;
+  color: #fff;
+}
+

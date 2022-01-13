@@ -1,12 +1,11 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
-			"path": "pages/shoplist/shoplist",
+			"path": "pages/detail/detail",
 			"style": {
-				"navigationBarTitleText": "",
+				"navigationBarTitleText": "商品详情",
 				"enablePullDownRefresh": false
 			}
-
 		},
 		{
 			"path": "pages/index/index",
@@ -14,14 +13,16 @@
 				"navigationBarTitleText": "E宠商城",
 				"enablePullDownRefresh": false
 			}
-		}, {
+		},
+		{
 			"path": "pages/category/category",
 			"style": {
 				"navigationBarTitleText": "分类",
 				"enablePullDownRefresh": false
 			}
 
-		}, {
+		},
+		{
 			"path": "pages/cart/cart",
 			"style": {
 				"navigationBarTitleText": "购物车",
@@ -33,6 +34,22 @@
 			"path": "pages/center/center",
 			"style": {
 				"navigationBarTitleText": "我的E宠",
+				"enablePullDownRefresh": false
+			}
+
+		},
+		{
+			"path": "pages/shoplist/shoplist",
+			"style": {
+				"navigationBarTitleText": "商品列表",
+				"enablePullDownRefresh": false
+			}
+
+		},
+		{
+			"path": "pages/login/login",
+			"style": {
+				"navigationBarTitleText": "登录",
 				"enablePullDownRefresh": false
 			}
 

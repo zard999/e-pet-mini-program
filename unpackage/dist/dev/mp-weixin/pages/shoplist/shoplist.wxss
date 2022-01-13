@@ -33,7 +33,7 @@
   font-size: 26rpx;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2; /** 多行文本溢出...*/
+  -webkit-line-clamp: 2 /* * 多行文本溢出... */;
   overflow: hidden;
 }
 .shoplistContainer .shoplist .shopItem .detail .price {

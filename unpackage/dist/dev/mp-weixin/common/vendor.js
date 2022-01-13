@@ -8750,14 +8750,16 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 var _vuex = _interopRequireDefault(__webpack_require__(/*! vuex */ 13));
 var _home = _interopRequireDefault(__webpack_require__(/*! ./modules/home.js */ 14));
 var _category = _interopRequireDefault(__webpack_require__(/*! ./modules/category.js */ 19));
-var _center = _interopRequireDefault(__webpack_require__(/*! ./modules/center.js */ 20));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _center = _interopRequireDefault(__webpack_require__(/*! ./modules/center.js */ 20));
+var _cart = _interopRequireDefault(__webpack_require__(/*! ./modules/cart.js */ 21));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 _vue.default.use(_vuex.default);var _default =
 
 new _vuex.default.Store({
   modules: {
     home: _home.default,
     category: _category.default,
-    center: _center.default } });exports.default = _default;
+    center: _center.default,
+    cart: _cart.default } });exports.default = _default;
 
 /***/ }),
 /* 13 */
@@ -10950,6 +10952,169 @@ var getters = {
     return state.centerData.avatar || '';
   } };var _default =
 
+
+{
+  state: state,
+  mutations: mutations,
+  actions: actions,
+  getters: getters };exports.default = _default;
+
+/***/ }),
+/* 21 */
+/*!***************************************************************************!*\
+  !*** C:/Users/联想小新Pro13- 锐龙版/Desktop/e宠商城/pet-shop/store/modules/cart.js ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _request = _interopRequireDefault(__webpack_require__(/*! ../../utils/request.js */ 18));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+
+var state = {
+  cartList: [
+  {
+    isChecked: true,
+    count: 4,
+    'gspid': 0,
+    'gid': 248732,
+    'cateid': 7,
+    'subject': '新西兰原装进口巅峰ZiwiPeak 鸡肉配方风干犬粮 1kg',
+    'presubject': '新西兰原装进口巅峰ZiwiPeak 鸡肉配方风干犬粮 1kg',
+    'formats': '',
+    'formats_values': '',
+    'photo': 'https://img2.epetbar.com/common/upload/commonfile/2020/02/03/202309_378516.jpg',
+    'cover_img_for_notice': {
+      'img_url': 'https://static.epetbar.com/static_www/goods_detail_dev/goods_with_video.png',
+      'img_size': '50X50' },
+
+    'sale_price': '405.00',
+    'market_price': '499.00',
+    'youhui_price': 0,
+    'fm_shareid': 248744,
+    'brandid': 725,
+    'order': '',
+    'replys': 269,
+    'asks': 0,
+    'sold': '售出:448',
+    'unit': '袋',
+    'stockmode': 2,
+    'stock_now': 186,
+    'stock': 186,
+    'isBest': 0,
+    'real_wid': 1,
+    'virtual_wid': 1,
+    'site': 0,
+    'comments': '互动:(100%好评)',
+    'dprice': '202.50元/斤',
+    'country_photo': 'https://img2.epetbar.com/nowater/2016-08/12/16/f5b9321b7e88ed78e8bb0e226ac847a3.jpg',
+    'with_me': '',
+    'gtype_icon': {},
+    'subject_tip': '',
+    'goods_sign': 0,
+    'goods_icon': '',
+    'activityLabels': [],
+    'activityIcons': [],
+    'send_ware': '',
+    'extend_pam': '' },
+
+  {
+    isChecked: false,
+    count: 6,
+    'gspid': 0,
+    'gid': 199889,
+    'cateid': 7,
+    'subject': '新西兰原装进口 滋益巅峰Ziwi Peak 风干马鲛鱼羊肉配方狗粮 454g',
+    'presubject': '新西兰原装进口 滋益巅峰Ziwi Peak 风干马鲛鱼羊肉配方狗粮 454g',
+    'formats': '',
+    'formats_values': '',
+    'photo': 'https://img2.epetbar.com/common/upload/commonfile/2020/02/03/203516_879390.jpg',
+    'cover_img_for_notice': {
+      'img_url': 'https://static.epetbar.com/static_www/goods_detail_dev/goods_with_video.png',
+      'img_size': '50X50' },
+
+    'sale_price': '265.00',
+    'market_price': '294.00',
+    'youhui_price': 0,
+    'fm_shareid': 199889,
+    'brandid': 725,
+    'order': '',
+    'replys': 670,
+    'asks': 11,
+    'sold': '售出:230',
+    'unit': '袋',
+    'stockmode': 2,
+    'stock_now': 19,
+    'stock': 19,
+    'isBest': 0,
+    'real_wid': 1,
+    'virtual_wid': 1,
+    'site': 0,
+    'comments': '互动:(100%好评)',
+    'dprice': '294.44元/斤',
+    'country_photo': 'https://img2.epetbar.com/nowater/2016-08/12/16/f5b9321b7e88ed78e8bb0e226ac847a3.jpg',
+    'with_me': '',
+    'gtype_icon': {},
+    'subject_tip': '',
+    'goods_sign': 0,
+    'goods_icon': '',
+    'activityLabels': [],
+    'activityIcons': [],
+    'send_ware': '',
+    'extend_pam': '' },
+
+  {
+    isChecked: false,
+    count: 10,
+    'gspid': 0,
+    'gid': 679879,
+    'cateid': 7,
+    'subject': '新西兰原装进口 卫塔卡夫Vitakraft 含牛肉羊肉配方犬粮 7kg',
+    'presubject': '新西兰原装进口 卫塔卡夫Vitakraft 含牛肉羊肉配方犬粮 7kg',
+    'formats': '',
+    'formats_values': '',
+    'photo': 'https://img2.epetbar.com/nowater/showcase/2021/12/31/2249259756213727.jpg',
+    'cover_img_for_notice': {
+      'img_url': 'https://static.epetbar.com/static_www/goods_detail_dev/goods_with_video.png',
+      'img_size': '50X50' },
+
+    'sale_price': '449.00',
+    'market_price': '559.00',
+    'youhui_price': 0,
+    'fm_shareid': 679881,
+    'brandid': 366,
+    'order': '',
+    'replys': 0,
+    'asks': 0,
+    'sold': '售出:238',
+    'unit': '袋',
+    'stockmode': 2,
+    'stock_now': 8,
+    'stock': 8,
+    'isBest': 0,
+    'real_wid': 1,
+    'virtual_wid': 1,
+    'site': 0,
+    'comments': '互动:(100%好评)',
+    'dprice': '32.07元/斤',
+    'country_photo': 'https://img2.epetbar.com/nowater/2016-08/12/16/f5b9321b7e88ed78e8bb0e226ac847a3.jpg',
+    'with_me': '',
+    'gtype_icon': {},
+    'subject_tip': '',
+    'goods_sign': 0,
+    'goods_icon': '',
+    'activityLabels': [],
+    'activityIcons': [],
+    'send_ware': '',
+    'extend_pam': '' }] };
+
+
+
+
+var mutations = {};
+
+var actions = {};
+
+var getters = {};var _default =
 
 {
   state: state,

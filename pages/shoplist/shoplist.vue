@@ -6,21 +6,19 @@
 			<view class="item">价格</view>
 			<view class="item">筛选</view>
 		</view>
-		
+
 		<view class="shoplist">
-			<view class="shopItem" v-for="item in shopList" :key="item.gid">
+			<view class="shopItem" v-for="item in shopList" :key="item.gid" @click="toDetail(item)">
 				<image class="shopImg" :src="item.photo" mode=""></image>
 				<view class="detail">
-					<view class="title">
-						{{item.subject}}
-					</view>
+					<view class="title">{{ item.subject }}</view>
 					<view class="price">
-						<text class="priceText">￥{{item.sale_price}}</text>
-						<text class="dprice">{{item.dprice}}</text>
+						<text class="priceText">￥{{ item.sale_price }}</text>
+						<text class="dprice">{{ item.dprice }}</text>
 					</view>
 					<view class="sold">
-						<text class="comments">{{item.comments}}</text>
-						<text class="soldNum">{{item.sold}}</text>
+						<text class="comments">{{ item.comments }}</text>
+						<text class="soldNum">{{ item.sold }}</text>
 					</view>
 				</view>
 			</view>
@@ -31,13 +29,19 @@
 <script>
 export default {
 	data() {
-		return { shopList: [] }
+		return { shopList: [] };
 	},
 	mounted() {
-		this.shopList = wx.getStorageSync('shoplist_key').list
+		this.shopList = wx.getStorageSync('shoplist_key').list;
 	},
-	methods: {}
-}
+	methods: {
+		// 点击去商品详情页面
+		toDetail(item) {
+			wx.setStorageSync('detailInfo_key', item);
+			wx.navigateTo({ url: '../detail/detail' });
+		}
+	}
+};
 </script>
 
 <style lang="stylus">
@@ -68,10 +72,10 @@ export default {
 				margin-left 20rpx
 				.title
 					font-size 26rpx
-					display: -webkit-box;
-					-webkit-box-orient: vertical;
-					-webkit-line-clamp: 2;   /** 多行文本溢出...*/
-					overflow: hidden; 
+					display -webkit-box
+					-webkit-box-orient vertical
+					-webkit-line-clamp 2 /* * 多行文本溢出... */
+					overflow hidden
 				.price
 					margin-top 40rpx
 					.priceText
@@ -87,5 +91,4 @@ export default {
 					color #999
 					.soldNum
 						margin-left 10rpx
-						
 </style>

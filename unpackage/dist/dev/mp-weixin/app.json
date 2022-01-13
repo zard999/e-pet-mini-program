@@ -1,10 +1,12 @@
 {
   "pages": [
-    "pages/shoplist/shoplist",
+    "pages/detail/detail",
     "pages/index/index",
     "pages/category/category",
     "pages/cart/cart",
-    "pages/center/center"
+    "pages/center/center",
+    "pages/shoplist/shoplist",
+    "pages/login/login"
   ],
   "subPackages": [],
   "window": {
@@ -45,6 +47,5 @@
       }
     ]
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap73.json"
+  "usingComponents": {}
 }

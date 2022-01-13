@@ -1,0 +1,1 @@
+<view class="loginContainer"><image class="logo" src="../../static/images/logo.png" mode></image><view class="title">需要登录才能继续哦~</view><view data-event-opts="{{[['tap',[['login',['$event']]]]]}}" class="iphone-login" bindtap="__e">微信一键登录</view><view class="other-phone">手机号登录</view></view>
