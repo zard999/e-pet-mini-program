@@ -72,17 +72,21 @@
   padding: 20rpx;
   background-color: #e3a865;
 }
-.detailContainer .price .countDown .countText {
-  font-size: 22rpx;
-  font-weight: 100;
-}
 .detailContainer .price .countDown .countTime {
   display: flex;
+  flex-direction: column;
   align-items: center;
   font-size: 22rpx;
+}
+.detailContainer .price .countDown .countTime .countText {
+  font-weight: 100;
+}
+.detailContainer .price .countDown .countTime .count {
+  display: flex;
+  align-items: center;
   margin-top: 10rpx;
 }
-.detailContainer .price .countDown .countTime .time {
+.detailContainer .price .countDown .countTime .count .time {
   padding: 5rpx;
   background-color: #fff;
   color: #ad7340;
@@ -155,6 +159,7 @@
   font-size: 24rpx;
 }
 .detailContainer .cart .shopCart {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -165,6 +170,17 @@
 .detailContainer .cart .shopCart .shopCartText {
   margin-top: 10rpx;
   font-size: 24rpx;
+}
+.detailContainer .cart .shopCart .shopNum {
+  position: absolute;
+  top: -14rpx;
+  right: -2rpx;
+  padding: 6rpx 10rpx;
+  background-color: #f03e3e;
+  border-radius: 50%;
+  text-align: center;
+  color: #fff;
+  font-size: 20rpx;
 }
 .detailContainer .cart .addCart {
   display: flex;

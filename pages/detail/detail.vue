@@ -20,14 +20,20 @@
 					</view>
 
 					<view class="countDown">
-						<text class="countText">距离结束仅剩3天</text>
-						<view class="countTime">
-							<view class="time">13</view>
-							:
-							<view class="time">34</view>
-							:
-							<view class="time">34</view>
-						</view>
+						<BaseCounter :time="86410">
+							<template slot-scope="{ d, hh, mm, ss }">
+								<view class="countTime">
+									<text class="countText">距离结束仅剩 {{ d }} 天</text>
+									<view class="count">
+										<view class="time">{{ hh }}</view>
+										:
+										<view class="time">{{ mm }}</view>
+										:
+										<view class="time">{{ ss }}</view>
+									</view>
+								</view>
+							</template>
+						</BaseCounter>
 					</view>
 				</view>
 
@@ -50,20 +56,24 @@
 						<text>30天退货</text>
 					</view>
 				</view>
+
+				<BaseCounter :time="600000"></BaseCounter>
 			</view>
 		</scroll-view>
-		
+
 		<view class="cart">
 			<view class="collect">
 				<image class="collectImg" src="../../static/images/collect.png" mode=""></image>
 				<text class="collectText">收藏</text>
 			</view>
-		
+
 			<view class="shopCart">
 				<image class="shopCartImg" src="../../static/images/tabBar/tab-cart.png" mode=""></image>
 				<text class="shopCartText">购物车</text>
+
+				<text class="shopNum">{{ shopNum }}</text>
 			</view>
-		
+
 			<view class="addCart" @click="addCart">加入购物车</view>
 		</view>
 	</view>
@@ -71,54 +81,90 @@
 
 <script>
 import { mapState } from 'vuex';
+// 倒计时组件
+import BaseCounter from './components/base-counter.vue';
 export default {
 	data() {
 		return {
-			detailInfo: {}
+			detailInfo: {},
+			userInfo: {}
 		};
 	},
 	mounted() {
+		this.userInfo = wx.getStorageSync('userInfo_key');
 		this.detailInfo = wx.getStorageSync('detailInfo_key');
 	},
 
 	methods: {
 		// 添加当前商品到购物车
 		addCart() {
-			let obj = this.cartList.find(item=>item.gid === this.detailInfo.gid)
-			console.log(obj);
-			if(obj){
-				obj.count++
-			}else{
-				obj = this.detailInfo
-				obj.count = 1
-				obj.isChecked = true
-				this.cartList.push(obj)
+			if (this.userInfo.nickName) {
+				let obj = this.cartList.find(item => item.gid === this.detailInfo.gid);
+				console.log(obj);
+				if (obj) {
+					obj.count++;
+				} else {
+					obj = this.detailInfo;
+					obj.count = 1;
+					obj.isChecked = true;
+					this.cartList.push(obj);
+				}
+				uni.showModal({
+					content: '商品已成功加入购物车!',
+					confirmText: '去购物车',
+					confirmColor: '#59ce40',
+					cancelText: '继续购物',
+					success: function(res) {
+						if (res.confirm) {
+							// 点击确定的逻辑
+							wx.reLaunch({
+								url: '../cart/cart'
+							});
+						} else if (res.cancel) {
+							// 点击取消的逻辑
+							// 就停留在当前页面
+							console.log('hhh');
+						}
+					}
+				});
+			} else {
+				uni.showModal({
+					content: '请先登录!',
+					confirmText: '去登录',
+					confirmColor: '#59ce40',
+					cancelText: '继续逛逛',
+					success: function(res) {
+						if (res.confirm) {
+							// 点击确定的逻辑
+							wx.navigateTo({
+								url: '../login/login'
+							});
+						} else if (res.cancel) {
+							// 点击取消的逻辑
+							// 就停留在当前页面
+							console.log('hhh');
+						}
+					}
+				});
 			}
-			uni.showModal({
-			    content: '商品已成功加入购物车!',
-				confirmText:'去购物车',
-				confirmColor:'#59ce40',
-				cancelText: '继续购物',
-			    success: function (res) {
-			        if (res.confirm) {
-			            // 点击确定的逻辑
-						wx.reLaunch({
-							url:'../cart/cart'
-						})
-			        } else if (res.cancel) {
-			            // 点击取消的逻辑
-						// 就停留在当前页面
-						console.log('hhh');
-			        }
-			    }
-			});
 		}
 	},
 
 	computed: {
 		...mapState({
 			cartList: state => state.cart.cartList
-		})
+		}),
+
+		// 计算购物车数量
+		shopNum() {
+			return this.cartList.reduce((p, c) => {
+				return (p += c.count);
+			}, 0);
+		}
+	},
+
+	components: {
+		BaseCounter
 	}
 };
 </script>
@@ -185,23 +231,26 @@ export default {
 			align-items center
 			padding 20rpx
 			background-color #e3a865
-			.countText
-				font-size 22rpx
-				font-weight 100
 			.countTime
 				display flex
+				flex-direction column
 				align-items center
 				font-size 22rpx
-				margin-top 10rpx
-				.time
-					padding 5rpx
-					background-color #fff
-					color #ad7340
-					line-height 40rpx
-					text-align center
-					font-weight 600
-					border-radius 10rpx
-					margin 0 4rpx
+				.countText
+					font-weight 100
+				.count
+					display flex
+					align-items center
+					margin-top 10rpx
+					.time
+						padding 5rpx
+						background-color #fff
+						color #ad7340
+						line-height 40rpx
+						text-align center
+						font-weight 600
+						border-radius 10rpx
+						margin 0 4rpx
 	.title
 		font-weight 100
 		padding 20rpx
@@ -254,6 +303,7 @@ export default {
 				margin-top 10rpx
 				font-size 24rpx
 		.shopCart
+			position relative
 			display flex
 			flex-direction column
 			align-items center
@@ -263,6 +313,16 @@ export default {
 			.shopCartText
 				margin-top 10rpx
 				font-size 24rpx
+			.shopNum
+				position absolute
+				top -14rpx
+				right -2rpx
+				padding 6rpx 10rpx
+				background-color #f03e3e
+				border-radius 50%
+				text-align center
+				color #fff
+				font-size 20rpx
 		.addCart
 			display flex
 			align-items center

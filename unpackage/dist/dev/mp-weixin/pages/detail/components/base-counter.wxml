@@ -1,0 +1,1 @@
+<view class="_base-count-down _div"><slot></slot><scoped-slots-default d="{{days}}" hh="{{$root.g0}}" mm="{{$root.g1}}" ss="{{$root.g2}}" class="scoped-ref" bind:__l="__l"></scoped-slots-default></view>

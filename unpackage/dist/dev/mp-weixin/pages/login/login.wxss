@@ -10,6 +10,7 @@
 }
 .loginContainer .title {
   font-size: 24rpx;
+  font-weight: 100;
 }
 .loginContainer .iphone-login {
   width: 90%;

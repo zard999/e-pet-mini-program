@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "detail-base-counter-default": "/pages/detail/detail-base-counter-default",
+    "base-counter": "/pages/detail/components/base-counter"
+  }
+}

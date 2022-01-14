@@ -1,0 +1,1 @@
+<view class="countTime"><text class="countText">{{"距离结束仅剩 "+d+" 天"}}</text><view class="count"><view class="time">{{hh}}</view>:<view class="time">{{mm}}</view>:<view class="time">{{ss}}</view></view></view>

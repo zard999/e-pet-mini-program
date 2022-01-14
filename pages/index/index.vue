@@ -13,7 +13,7 @@
 		<scroll-view scroll-y="true" enable-flex class="indexScroll" style="height: calc(100vh - 80rpx);">
 			<view class="scrollMain">
 				<!-- indexSwiper -->
-				<swiper class="indexSwiper" :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000"> 
+				<swiper class="indexSwiper" :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000">
 					<swiper-item v-for="banner in bannerList" :key="banner.advid">
 						<view class="swiper-item"><image class="swiperImg" :src="banner.img_url" mode=""></image></view>
 					</swiper-item>
@@ -59,21 +59,21 @@
 
 				<!-- 猜你喜欢 -->
 				<view class="like">
-					<view class="title">{{like.title}}</view>
+					<view class="title">{{ like.title }}</view>
 					<view class="likeList">
 						<view class="likeItem" v-for="goods in like.goodsList" :key="goods.gid">
 							<image class="itemImg" :src="goods.img.img_url" mode=""></image>
-							<view class="itemTitle">{{goods.title}}</view>
+							<view class="itemTitle">{{ goods.title }}</view>
 							<view class="cateList">
-								<view class="cateItem" v-for="(prop,index) in goods.goods_properties" :key="index">{{prop}}</view>
+								<view class="cateItem" v-for="(prop, index) in goods.goods_properties" :key="index">{{ prop }}</view>
 							</view>
 							<view class="itemPrice">
-								<text class="price">￥{{goods.normal_price.price}}</text>
-								<text class="tag_content">{{goods.normal_price.tag_content}}</text>
+								<text class="price">￥{{ goods.normal_price.price }}</text>
+								<text class="tag_content">{{ goods.normal_price.tag_content }}</text>
 							</view>
 							<view class="itemTop">
 								<image class="topImg" :src="goods.rank_detail.icon_img.img_url" mode=""></image>
-								<text class="topTitle">{{goods.rank_detail.message}}</text>
+								<text class="topTitle">{{ goods.rank_detail.message }}</text>
 								<image class="topImgRight" src="https://static.epetbar.com/epet_wap_img/index/arrow.png" mode=""></image>
 							</view>
 							<view class="itemBottom"><image class="buttomImg" :src="goods.rank_detail.bg_img.img_url" mode=""></image></view>
@@ -86,11 +86,14 @@
 </template>
 
 <script>
+import moment from 'moment'
 import { mapGetters } from 'vuex';
 export default {
 	name: 'Index',
 	mounted() {
 		this.getIndexData();
+		// let time = moment().format('DD:hh:mm:ss')
+		// console.log(time);
 	},
 
 	methods: {
@@ -127,10 +130,10 @@ export default {
 		discount() {
 			return this.indexList[4] || {};
 		},
-		
+
 		// 猜你喜欢
-		like(){
-			return this.indexList[5] || {}
+		like() {
+			return this.indexList[5] || {};
 		}
 	}
 };

@@ -1,41 +1,54 @@
 <template>
 	<view class="cartContainer">
-		<scroll-view scroll-y="true" enable-flex class="cartScroll">
+		<scroll-view v-if="userInfo.nickName && cartList.length" scroll-y="true" enable-flex class="cartScroll">
 			<view class="scrollMain">
 				<!-- 购物车列表 -->
 				<view class="cartList">
-					<view class="cartItem" v-for="cart in cartList" :key="cart.gid">
-						<view class="checkbox">
-							<image class="noCheckImg" :class="{ selected: cart.isChecked }" src="../../static/images/nocheck.png" @click="checkSingle(cart)"></image>
-						</view>
+					<uni-swipe-action>
+						<uni-swipe-action-item v-for="(cart, index) in cartList" :key="cart.gid" @click="bindClick">
+							<view class="cartItem">
+								<view class="checkbox">
+									<image class="noCheckImg" :class="{ selected: cart.isChecked }" src="../../static/images/nocheck.png" @click="checkSingle(cart)"></image>
+								</view>
 
-						<view class="itemContent">
-							<image class="itemImg" :src="cart.photo" mode=""></image>
-							<view class="rightContent">
-								<text class="title">{{ cart.subject }}</text>
+								<view class="itemContent">
+									<image class="itemImg" :src="cart.photo" mode=""></image>
+									<view class="rightContent">
+										<text class="title">{{ cart.subject }}</text>
 
-								<view class="price_and_addplus">
-									<text class="price">￥{{ cart.sale_price }}</text>
-									<view class="add_plus">
-										<view class="plus" :class="{ active: cart.count > 1 }" @click="handlerNum(cart, -1, true)">-</view>
-										<input class="inp" type="text" :value="cart.count" @change="handlerNum(cart, $event.target.value, false)" />
-										<view class="add" @click="handlerNum(cart, 1, true)">+</view>
+										<view class="price_and_addplus">
+											<text class="price">￥{{ cart.sale_price }}</text>
+											<view class="add_plus">
+												<view class="plus" :class="{ active: cart.count > 1 }" @click="handlerNum(cart, -1, true)">-</view>
+												<input class="inp" type="text" :value="cart.count" @change="handlerNum(cart, $event.target.value, false)" />
+												<!-- <input class="inp" type="text" v-model="cart.count" @change="handlerNum(cart, $event.target.value, false)" /> -->
+												<view class="add" @click="handlerNum(cart, 1, true)">+</view>
+											</view>
+										</view>
 									</view>
 								</view>
 							</view>
-						</view>
-					</view>
+							<template v-slot:right>
+								<view class="slot-button" @click="deleteImte(index)"><text class="slot-button-text">删除</text></view>
+							</template>
+						</uni-swipe-action-item>
+					</uni-swipe-action>
 				</view>
 			</view>
 		</scroll-view>
 
 		<!-- 结算 -->
-		<view class="settlement">
+		<view class="settlement" v-if="userInfo.nickName && cartList.length">
 			<image :class="{ selected: isCheckAll }" class="total" src="../../static/images/nocheck.png" @click="allCheck"></image>
 			合计：
 			<text class="price">￥{{ totalPrice }}</text>
 			<text class="discount">优惠:￥{{ discount }}</text>
 			<view class="toSettlement">去结算({{ totalNum }})</view>
+		</view>
+
+		<view v-else class="emptyCart">
+			<image style="width: 100%;" src="../../static/images/cart-kong.jpg" mode=""></image>
+			<view class="anyTo" @click="anyTo">随便逛逛</view>
 		</view>
 	</view>
 </template>
@@ -44,7 +57,33 @@
 import { mapState } from 'vuex';
 export default {
 	data() {
-		return {};
+		return {
+			userInfo: {},
+			swipeList: [],
+			options1: [
+				{
+					text: '取消置顶'
+				}
+			],
+			options2: [
+				{
+					text: '取消',
+					style: {
+						backgroundColor: '#007aff'
+					}
+				},
+				{
+					text: '确认',
+					style: {
+						backgroundColor: '#F56C6C'
+					}
+				}
+			]
+		};
+	},
+
+	mounted() {
+		this.userInfo = wx.getStorageSync('userInfo_key');
 	},
 
 	methods: {
@@ -63,7 +102,6 @@ export default {
 			// console.log(cart, disNum * 1, flag);
 			if (flag) {
 				cart.count += +disNum;
-				console.log(cart.count);
 				if (cart.count < 1) {
 					uni.showModal({
 						content: '喵~不需要该商品可取消勾选哦!',
@@ -75,36 +113,86 @@ export default {
 							}
 						}
 					});
+				} else if (cart.count > 20) {
+					uni.showModal({
+						content: '喵~商品最大数量为20哦!',
+						showCancel: false,
+						success: res => {
+							if (res.confirm) {
+								// 点击确定的逻辑
+								this.$nextTick(function() {
+									cart.count = 20;
+								});
+							}
+						}
+					});
 				}
 			} else {
-				disNum = +disNum;
-				if (/^\d+$/.test(disNum) && disNum !== 0) {
-					cart.count = disNum
-				} else if (disNum === 0) {
+				// 为什么只能变1次1，因为cart.count变为1后，input变值时，cart里面的count为1，而下面再将其变为1，实际上数据是没有变的，那么就不会触发响应式，所以要在开头的时候就将其改变值。这样虽然改变了两个值，但是太快了，vue会做优化，只改变前一次，所以需要用到$nextTick
+				cart.count = +disNum;
+				if (!/^\d+$/.test(cart.count)) {
+					uni.showModal({
+						content: '喵~不能输入非法字符哦!',
+						showCancel: false,
+						success: res => {
+							if (res.confirm) {
+								// 点击确定的逻辑
+								this.$nextTick(function() {
+									cart.count = 1;
+								});
+							}
+						}
+					});
+				} else if (cart.count === 0) {
 					uni.showModal({
 						content: '喵~不需要该商品可取消勾选哦!',
 						showCancel: false,
 						success: res => {
 							if (res.confirm) {
 								// 点击确定的逻辑
-								cart.count = 1;
-								console.log(cart.count);
+								this.$nextTick(function() {
+									cart.count = 1;
+								});
 							}
 						}
 					});
-				} else{
+				} else if (cart.count > 20) {
 					uni.showModal({
-						content: '喵~不能输入非数字哦!',
+						content: '喵~商品最大数量为20哦!',
 						showCancel: false,
 						success: res => {
 							if (res.confirm) {
 								// 点击确定的逻辑
-								cart.count = 1;
+								this.$nextTick(function() {
+									cart.count = 20;
+								});
 							}
 						}
 					});
 				}
 			}
+		},
+
+		// 删除item
+		deleteImte(index) {
+			this.cartList.splice(index, 1);
+			uni.showToast({
+				title: '删除成功',
+				duration: 2000
+			});
+		},
+
+		// 去任意页面逛逛
+		anyTo() {
+			if (!this.cartList.length) {
+				wx.reLaunch({
+					url: '../category/category'
+				});
+				return;
+			}
+			wx.navigateTo({
+				url: '../login/login'
+			});
 		}
 	},
 	computed: {
@@ -163,7 +251,7 @@ export default {
 		background-color #f3f4f5
 		.cartList
 			width 100%
-			padding 0 20rpx 10rpx 20rpx
+			padding 0 20rpx 0 20rpx
 			background-color #fff
 			.cartItem
 				display flex
@@ -225,6 +313,14 @@ export default {
 									width 60rpx
 									height 42rpx
 									border-left #999 solid 1rpx
+			.slot-button
+				display flex
+				justify-content center
+				align-items center
+				width 120rpx
+				height 100%
+				background-color #e64340
+				color #fff
 	.settlement
 		position absolute
 		bottom 0
@@ -265,4 +361,17 @@ export default {
 			font-size 500
 			background-color #41c856
 			margin-right 50rpx
+	.emptyCart
+		display flex
+		flex-direction column
+		align-items center
+		.anyTo
+			width 200rpx
+			height 80rpx
+			color #f13e3e
+			border 2rpx solid #f13e3e
+			border-radius 80rpx
+			box-sizing border-box
+			text-align center
+			line-height 80rpx
 </style>

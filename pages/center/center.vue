@@ -6,16 +6,14 @@
 				<image class="rightIcon" src="../../static/images/search-right.png" mode=""></image>
 			</view>
 
-			
-			
 			<view class="login" v-if="userInfo.nickName">
 				<image class="avatar" :src="userInfo.avatarUrl" mode=""></image>
-				<text class="loginText">{{userInfo.nickName}}</text>
+				<text class="loginText">{{ userInfo.nickName }}</text>
 			</view>
-			
+
 			<view class="login" v-else>
-				<image class="avatar" :src="avatar" mode=""></image>
-				<text class="loginText">未登陆</text>
+				<image class="avatar" :src="avatar" @click="toLogin"></image>
+				<text class="loginText" @click="toLogin">未登陆</text>
 			</view>
 
 			<view class="buttomWrap"><image v-for="(item, index) in headerData.items" :key="item.id" class="buttomImg" :src="item.above_image.img_url" mode=""></image></view>
@@ -50,7 +48,7 @@
 			<view class="serverList">
 				<view class="serverItem" v-for="item in serverData.items" :key="item.id">
 					<image class="itemImg" :src="item.above_image.img_url" mode=""></image>
-					<text class="itemText">{{item.below_text}}</text>
+					<text class="itemText">{{ item.below_text }}</text>
 				</view>
 			</view>
 		</view>
@@ -62,17 +60,24 @@ import { mapGetters } from 'vuex';
 export default {
 	data() {
 		return {
-			userInfo:{}
+			userInfo: {}
 		};
 	},
 	mounted() {
 		this.getCenterData();
-		this.userInfo = wx.getStorageSync('userInfo_key')
+		this.userInfo = wx.getStorageSync('userInfo_key');
 	},
 
 	methods: {
 		getCenterData() {
 			this.$store.dispatch('getCenterData');
+		},
+
+		// 去登录
+		toLogin() {
+			wx.navigateTo({
+				url: '../login/login'
+			});
 		}
 	},
 
@@ -90,16 +95,14 @@ export default {
 		walletData() {
 			return (this.centerList[2] || {}).data;
 		},
-		
-		serverImg(){
+
+		serverImg() {
 			return (this.centerList[3] || {}).header;
 		},
-		
+
 		serverData() {
 			return (this.centerList[3] || {}).data;
 		}
-		
-		
 	}
 };
 </script>

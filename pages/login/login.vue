@@ -40,6 +40,7 @@ export default {
 		height 300rpx
 	.title
 		font-size 24rpx
+		font-weight 100
 	.iphone-login
 		width 90%
 		height 100rpx

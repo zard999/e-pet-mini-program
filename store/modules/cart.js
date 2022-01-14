@@ -1,8 +1,7 @@
 import request from '../../utils/request.js'
 
 const state = {
-	cartList: [
-		{
+	cartList: [{
 			isChecked: true,
 			count: 4,
 			'gspid': 0,

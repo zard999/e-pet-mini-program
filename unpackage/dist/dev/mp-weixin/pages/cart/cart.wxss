@@ -7,7 +7,7 @@
 }
 .cartContainer .cartScroll .cartList {
   width: 100%;
-  padding: 0 20rpx 10rpx 20rpx;
+  padding: 0 20rpx 0 20rpx;
   background-color: #fff;
 }
 .cartContainer .cartScroll .cartList .cartItem {
@@ -83,6 +83,15 @@
   height: 42rpx;
   border-left: #999 solid 1rpx;
 }
+.cartContainer .cartScroll .cartList .slot-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120rpx;
+  height: 100%;
+  background-color: #e64340;
+  color: #fff;
+}
 .cartContainer .settlement {
   position: absolute;
   bottom: 0;
@@ -128,5 +137,20 @@
   font-size: 500;
   background-color: #41c856;
   margin-right: 50rpx;
+}
+.cartContainer .emptyCart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.cartContainer .emptyCart .anyTo {
+  width: 200rpx;
+  height: 80rpx;
+  color: #f13e3e;
+  border: 2rpx solid #f13e3e;
+  border-radius: 80rpx;
+  box-sizing: border-box;
+  text-align: center;
+  line-height: 80rpx;
 }
 

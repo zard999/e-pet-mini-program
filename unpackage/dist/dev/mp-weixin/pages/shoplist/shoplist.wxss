@@ -1,6 +1,25 @@
 .shoplistContainer {
   height: 100%;
 }
+.shoplistContainer .search {
+  background-color: #fff;
+}
+.shoplistContainer .search .searchInp {
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  background-color: #f6f6f6;
+  margin: 20rpx;
+  border-radius: 10rpx;
+}
+.shoplistContainer .search .searchInp .searchImg {
+  width: 30rpx;
+  height: 30rpx;
+  margin: 0 20rpx;
+}
+.shoplistContainer .search .searchInp .inp {
+  font-size: 24rpx;
+}
 .shoplistContainer .header {
   display: flex;
 }
@@ -19,6 +38,7 @@
 .shoplistContainer .shoplist .shopItem {
   display: flex;
   padding: 20rpx;
+  box-sizing: border-box;
   border-bottom: 1rpx solid #999;
 }
 .shoplistContainer .shoplist .shopItem .shopImg {
@@ -27,6 +47,7 @@
   flex-shrink: 0;
 }
 .shoplistContainer .shoplist .shopItem .detail {
+  width: 100%;
   margin-left: 20rpx;
 }
 .shoplistContainer .shoplist .shopItem .detail .title {
@@ -49,11 +70,18 @@
   margin-left: 30rpx;
 }
 .shoplistContainer .shoplist .shopItem .detail .sold {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin-top: 10rpx;
   font-size: 26rpx;
   color: #999;
 }
 .shoplistContainer .shoplist .shopItem .detail .sold .soldNum {
-  margin-left: 10rpx;
+  margin-left: -100rpx;
+}
+.shoplistContainer .shoplist .shopItem .detail .sold .toCart {
+  width: 60rpx;
+  height: 60rpx;
 }
 
